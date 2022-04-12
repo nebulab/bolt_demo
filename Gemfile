@@ -56,3 +56,9 @@ gem 'rails-i18n'
 gem 'solidus_i18n'
 
 gem 'database_cleaner-active_record'
+
+# images
+gem 'activestorage-cloudinary-service'
+gem 'cloudinary'
+gem 'dotenv-rails', groups: %i[development test]
+gem 'image_processing', '~> 1.2'
