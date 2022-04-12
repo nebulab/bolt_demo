@@ -54,3 +54,5 @@ gem 'solidus_bolt', github: 'Nebulab/solidus_bolt'
 
 gem 'rails-i18n'
 gem 'solidus_i18n'
+
+gem 'database_cleaner-active_record'
