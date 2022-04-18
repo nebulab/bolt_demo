@@ -1,0 +1,62 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+# This workflow will download a prebuilt Ruby version, install dependencies and run tests with Rake
+# For more information see: https://github.com/marketplace/actions/setup-ruby-jruby-and-truffleruby
+
+name: Ruby
+
+on:
+  schedule:
+  - cron: "0 0 * * *"
+
+jobs:
+  bolt-gem-update:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:12.6
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: postgres
+        ports:
+          - 5432:5432
+        # needed because the postgres container does not provide a healthcheck
+        # tmpfs makes DB faster by using RAM
+        options: >-
+          --mount type=tmpfs,destination=/var/lib/postgresql/data
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    env:
+      PGHOST: localhost
+      PGUSER: postgres
+      PGPORT: 5432
+      PGPASSWORD: postgres
+      RAILS_ENV: development
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '2.7.2'
+      # - name: Install dependencies
+      #   run: bundle install
+      # - name: Create DB
+      #   run: bin/rails db:create db:migrate
+      - name: Update solidus_bolt gem
+        run: bundle update solidus_bolt --conservative
+      - name: Run generator
+        run: rails g solidus_bolt:install --auto_run_migrations=true
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Update solidus_bolt
+      - name: Deploy to Heroku
+        run: git push heroku master
+      - name: Run migrations on Heroku and clear seeds
+        run: heroku run rails db:migrate db:seed
