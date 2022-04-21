@@ -45,10 +45,6 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '2.7.2'
-      # - name: Install dependencies
-      #   run: bundle install
-      # - name: Create DB
-      #   run: bin/rails db:create db:migrate
       - name: Update solidus_bolt gem
         run: bundle update solidus_bolt --conservative
       - name: Run generator
@@ -56,7 +52,3 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Update solidus_bolt
-      - name: Deploy to Heroku
-        run: git push heroku master
-      - name: Run migrations on Heroku and clear seeds
-        run: heroku run rails db:migrate db:seed
