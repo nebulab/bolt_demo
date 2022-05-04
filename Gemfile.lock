@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/Nebulab/solidus_bolt.git
-  revision: 7bf6acc211ae3d35844d68e3153676872ecd87bf
+  revision: 4730154ef9a2e1308a2c46b311ab070f161e9fb1
   specs:
     solidus_bolt (0.0.1)
       httparty
