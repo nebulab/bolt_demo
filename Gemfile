@@ -59,6 +59,9 @@ gem 'database_cleaner-active_record'
 
 # images
 gem 'activestorage-cloudinary-service'
-gem 'cloudinary'
 gem 'dotenv-rails', groups: %i[development test]
 gem 'image_processing', '~> 1.2'
+
+group :production do
+  gem 'cloudinary'
+end
