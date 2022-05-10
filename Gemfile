@@ -50,7 +50,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'solidus'
 gem 'solidus_auth_devise', '>= 2.1.0'
-gem 'solidus_bolt', github: 'Nebulab/solidus_bolt'
+gem 'solidus_bolt', github: 'nebulab/solidus_bolt', branch: 'dp/fix-solidus-bolt-initializer'
 
 gem 'rails-i18n'
 gem 'solidus_i18n'

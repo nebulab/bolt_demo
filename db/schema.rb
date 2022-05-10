@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_12_013054) do
+ActiveRecord::Schema.define(version: 2022_05_10_195343) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,6 +73,33 @@ ActiveRecord::Schema.define(version: 2022_04_12_013054) do
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+  end
+
+  create_table "solidus_bolt_bolt_configurations", force: :cascade do |t|
+    t.string "bearer_token"
+    t.string "merchant_public_id"
+    t.string "merchant_id"
+    t.string "api_key"
+    t.string "signing_secret"
+    t.string "publishable_key"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "environment"
+  end
+
+  create_table "solidus_bolt_payment_sources", force: :cascade do |t|
+    t.integer "payment_method_id"
+    t.string "transaction_id"
+    t.string "transaction_reference", null: false
+    t.string "transaction_type"
+    t.string "processor"
+    t.date "date"
+    t.string "transaction_status"
+    t.decimal "amount", precision: 10, scale: 2
+    t.string "currency"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["payment_method_id"], name: "index_solidus_bolt_payment_sources_on_payment_method_id"
   end
 
   create_table "spree_addresses", id: :serial, force: :cascade do |t|
@@ -147,6 +174,16 @@ ActiveRecord::Schema.define(version: 2022_04_12_013054) do
     t.datetime "updated_at", precision: 6
     t.index ["viewable_id"], name: "index_assets_on_viewable_id"
     t.index ["viewable_type", "type"], name: "index_assets_on_viewable_type_and_type"
+  end
+
+  create_table "spree_authentication_methods", id: :serial, force: :cascade do |t|
+    t.string "environment"
+    t.string "provider"
+    t.string "api_key"
+    t.string "api_secret"
+    t.boolean "active"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "spree_calculators", id: :serial, force: :cascade do |t|
@@ -1093,6 +1130,14 @@ ActiveRecord::Schema.define(version: 2022_04_12_013054) do
     t.index ["address_id"], name: "index_spree_user_addresses_on_address_id"
     t.index ["user_id", "address_id"], name: "index_spree_user_addresses_on_user_id_and_address_id", unique: true
     t.index ["user_id"], name: "index_spree_user_addresses_on_user_id"
+  end
+
+  create_table "spree_user_authentications", id: :serial, force: :cascade do |t|
+    t.integer "user_id"
+    t.string "provider"
+    t.string "uid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "spree_user_stock_locations", id: :serial, force: :cascade do |t|

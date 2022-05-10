@@ -1,10 +1,12 @@
 GIT
-  remote: https://github.com/Nebulab/solidus_bolt.git
-  revision: 9e21d5d89cb8506f41a5cfb833ba55eb9d2ffb33
+  remote: https://github.com/nebulab/solidus_bolt.git
+  revision: 5e83f2661b17fa809c7b7a0f780eb81798f14cd8
+  branch: dp/fix-solidus-bolt-initializer
   specs:
     solidus_bolt (0.0.1)
       deface
       httparty
+      omniauth-bolt
       rails (> 0.a, < 7.a)
       solidus_auth_devise
       solidus_core (>= 2.0.0, < 4)
@@ -241,6 +243,9 @@ GEM
     omniauth-amazon (1.0.1)
       omniauth (~> 1.0)
       omniauth-oauth2 (~> 1.1)
+    omniauth-bolt (0.0.0)
+      omniauth-oauth (~> 1.1)
+      rack
     omniauth-facebook (9.0.0)
       omniauth-oauth2 (~> 1.2)
     omniauth-github (1.4.0)
