@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_10_195343) do
+ActiveRecord::Schema.define(version: 2022_05_12_083446) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -89,16 +89,16 @@ ActiveRecord::Schema.define(version: 2022_05_10_195343) do
 
   create_table "solidus_bolt_payment_sources", force: :cascade do |t|
     t.integer "payment_method_id"
-    t.string "transaction_id"
-    t.string "transaction_reference", null: false
-    t.string "transaction_type"
-    t.string "processor"
-    t.date "date"
-    t.string "transaction_status"
-    t.decimal "amount", precision: 10, scale: 2
-    t.string "currency"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "card_token"
+    t.string "card_last4"
+    t.string "card_bin"
+    t.string "card_number"
+    t.string "card_expiration"
+    t.string "card_postal_code"
+    t.string "card_id"
+    t.boolean "create_bolt_account", default: false
     t.index ["payment_method_id"], name: "index_solidus_bolt_payment_sources_on_payment_method_id"
   end
 
