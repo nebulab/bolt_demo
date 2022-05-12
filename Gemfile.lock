@@ -1,7 +1,6 @@
 GIT
   remote: https://github.com/nebulab/solidus_bolt.git
-  revision: 5e83f2661b17fa809c7b7a0f780eb81798f14cd8
-  branch: dp/fix-solidus-bolt-initializer
+  revision: 51c99e156ee8ed4fc858fc3e89bb74014a8ac96f
   specs:
     solidus_bolt (0.0.1)
       deface
