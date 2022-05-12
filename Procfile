@@ -1,1 +1,1 @@
-release: run rails db:migrate db:seed
+release: bundle exec rails db:migrate db:seed
