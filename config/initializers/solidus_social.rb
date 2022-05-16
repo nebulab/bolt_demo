@@ -80,6 +80,15 @@ Spree::SocialConfig.configure do |config|
   rescue StandardError
   end
 
+
+  begin
+    config.providers[:bolt] = {
+      api_key: SolidusBolt::BoltConfiguration.fetch.publishable_key,
+      api_secret: SolidusBolt::BoltConfiguration.fetch.api_key,
+    }
+  rescue StandardError
+  end
+
 end
 
 SolidusSocial.init_providers
