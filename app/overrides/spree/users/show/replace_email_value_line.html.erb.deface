@@ -1,0 +1,3 @@
+<!-- replace_contents 'dd' -->
+
+<%= @user.email %>
