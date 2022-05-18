@@ -1,0 +1,2 @@
+remove "erb[loud]:contains('f.check_box :remember_me'), erb[loud]:contains('f.label :remember_me'), erb[loud]:contains('f.submit')"
+
