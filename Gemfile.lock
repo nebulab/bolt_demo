@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/nebulab/solidus_bolt.git
-  revision: 22cfc688a864ec359743c46e3083410d99e242c2
+  revision: 172b62c04552f41de7beba22d7dcd97df14da374
   specs:
     solidus_bolt (0.0.1)
       deface
@@ -144,7 +144,7 @@ GEM
     faraday (2.3.0)
       faraday-net_http (~> 2.0)
       ruby2_keywords (>= 0.0.4)
-    faraday-net_http (2.0.2)
+    faraday-net_http (2.0.3)
     ffi (1.15.5)
     font-awesome-rails (4.7.0.8)
       railties (>= 3.2, < 8.0)
