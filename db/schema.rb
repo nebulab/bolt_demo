@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_12_083446) do
+ActiveRecord::Schema.define(version: 2022_05_24_163102) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -99,6 +99,7 @@ ActiveRecord::Schema.define(version: 2022_05_12_083446) do
     t.string "card_postal_code"
     t.string "card_id"
     t.boolean "create_bolt_account", default: false
+    t.integer "user_id"
     t.index ["payment_method_id"], name: "index_solidus_bolt_payment_sources_on_payment_method_id"
   end
 
