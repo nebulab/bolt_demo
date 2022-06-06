@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_24_163102) do
+ActiveRecord::Schema.define(version: 2022_06_04_000832) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,13 +78,13 @@ ActiveRecord::Schema.define(version: 2022_05_24_163102) do
   create_table "solidus_bolt_bolt_configurations", force: :cascade do |t|
     t.string "bearer_token"
     t.string "merchant_public_id"
-    t.string "merchant_id"
+    t.string "division_public_id"
     t.string "api_key"
     t.string "signing_secret"
     t.string "publishable_key"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "environment"
+    t.integer "environment", default: 1, null: false
   end
 
   create_table "solidus_bolt_payment_sources", force: :cascade do |t|
@@ -99,7 +99,6 @@ ActiveRecord::Schema.define(version: 2022_05_24_163102) do
     t.string "card_postal_code"
     t.string "card_id"
     t.boolean "create_bolt_account", default: false
-    t.integer "user_id"
     t.index ["payment_method_id"], name: "index_solidus_bolt_payment_sources_on_payment_method_id"
   end
 

@@ -242,7 +242,7 @@ GEM
     omniauth-amazon (1.0.1)
       omniauth (~> 1.0)
       omniauth-oauth2 (~> 1.1)
-    omniauth-bolt (0.0.0)
+    omniauth-bolt (0.1.0)
       omniauth-oauth (~> 1.1)
       rack
     omniauth-facebook (9.0.0)
