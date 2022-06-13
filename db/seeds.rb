@@ -10,6 +10,6 @@ DatabaseCleaner.clean
 Spree::Core::Engine.load_seed if defined?(Spree::Core)
 Spree::Auth::Engine.load_seed if defined?(Spree::Auth)
 SpreeSample::Engine.load_samples if defined?(SpreeSample)
-SolidusBolt::Engine.load_seed if defined?(SolidusBolt) && ENV['environment']
+SolidusBolt::Engine.load_seed if defined?(SolidusBolt) && ENV['BOLT_ENVIRONMENT']
 
 Spree::PaymentMethod.where.not(type: 'SolidusBolt::PaymentMethod').update_all(available_to_users: false)
