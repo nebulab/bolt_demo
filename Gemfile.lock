@@ -1,6 +1,7 @@
 GIT
   remote: https://github.com/nebulab/solidus_bolt.git
-  revision: a84a0d47196ab547f99e05b38dfb9e44286787a6
+  revision: cbb775128ad7af510cd6959a1b1d1f509b19c8cc
+  branch: fix-verify_bolt_request
   specs:
     solidus_bolt (0.0.1)
       coffee-rails
@@ -505,4 +506,4 @@ RUBY VERSION
    ruby 2.7.2p137
 
 BUNDLED WITH
-   2.3.11
+   2.3.15
