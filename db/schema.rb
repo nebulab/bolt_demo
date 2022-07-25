@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_01_000926) do
+ActiveRecord::Schema.define(version: 2022_07_25_213459) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,8 +76,6 @@ ActiveRecord::Schema.define(version: 2022_07_01_000926) do
   end
 
   create_table "solidus_bolt_bolt_configurations", force: :cascade do |t|
-    t.string "merchant_public_id"
-    t.string "division_public_id"
     t.string "api_key"
     t.string "signing_secret"
     t.string "publishable_key"
