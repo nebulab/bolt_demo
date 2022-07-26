@@ -1,15 +1,14 @@
 GIT
   remote: https://github.com/nebulab/solidus_bolt.git
-  revision: c5f4176c4fb9b06a7b4138c4b30754b6b66796e1
+  revision: b9e1fd8ed78d8ae53ac1c05ed5a3891d79099b15
   specs:
-    solidus_bolt (0.3.0)
+    solidus_bolt (0.4.0)
       coffee-rails
       deface
       httparty
       multi_json
       omniauth-bolt
-      rails (> 0.a, < 7.a)
-      solidus_auth_devise
+      rails
       solidus_core (>= 2.0.0, < 4)
       solidus_social
       solidus_support (~> 0.5)
