@@ -10,6 +10,15 @@ const domain = document.querySelector("meta[name=bolt-domain]").getAttribute("co
 document.addEventListener('DOMContentLoaded', function () {
   const emailField = document.getElementById('spree_user_email');
   if (emailField) {
+    emailField.onkeydown = async function (event) {
+      if (event.key === "Enter") {
+        event.stopPropagation();
+        event.preventDefault();
+
+        emailField.blur();
+      }
+    }
+
     emailField.onblur = async function () {
       const authorize = new AuthorizeAccount(emailField, publishableKey, domain);
       await authorize.accessRequest();
