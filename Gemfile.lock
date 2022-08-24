@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/nebulab/solidus_bolt.git
-  revision: 4a7e70f9e0ebd7c7337f12c5032f2eb53701e690
+  revision: dc3b3bb2da59fa41f6ad3dcdc8a2a06a92de82ac
   specs:
     solidus_bolt (0.6.0)
       coffee-rails
