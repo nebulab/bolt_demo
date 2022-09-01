@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/nebulab/solidus_bolt.git
-  revision: a8d1945333286748ff0445f35c187414a5da8fc4
+  revision: 98caf25ab1d6d1d443f263659ef63fe9ddca926c
   specs:
-    solidus_bolt (0.6.0)
+    solidus_bolt (0.7.0)
       coffee-rails
       deface
       httparty
