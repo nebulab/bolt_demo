@@ -102,3 +102,7 @@ OmniAuth.config.on_failure = proc do |env|
   controller_klass = ActiveSupport::Inflector.constantize("#{controller_name}Controller")
   controller_klass.action(:failure).call(env)
 end
+Rails.application.config.middleware.use OmniAuth::Builder do
+  provider :bolt, publishable_key: SolidusBolt::BoltConfiguration.fetch.publishable_key,
+            api_key: SolidusBolt::BoltConfiguration.fetch.api_key
+end
